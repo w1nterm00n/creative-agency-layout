@@ -1,0 +1,583 @@
+@import url(__fonts.scss);
+@import url(__normalize.scss);
+
+@mixin poppins300 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+} ;
+@mixin poppins400 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+} ;
+@mixin poppins700 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+} ;
+
+@mixin poppins500 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+} ;
+
+
+// to make little triangle near the link
+@mixin triangle($c){
+    a::before{
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -10px;
+        border: 7px solid transparent; 
+        border-left: 7px solid $c; 
+    }
+}
+
+@mixin ava($width){
+    width: $width;
+    height: $width; 
+    border-radius: 100%;
+    background-color: #bac0a9;
+}
+
+%caption{ //repetitive text side (h3, paraghaph and link)
+    h3{
+        margin-bottom: 35px;
+        max-width: 500px;
+        color: #4D533C;
+        font-size: 36px;
+        @include poppins700();
+        line-height: 46px; 
+    }
+    p{
+        color: rgba(33, 56, 66, 0.60);
+        font-size: 16px;
+        @include poppins400();
+        line-height: 26px; 
+        max-width: 500px;
+    }
+    p + p {
+        margin-top: 30px;
+        margin-bottom: 90px;
+    }
+      
+    @extend %link;
+}
+
+%comment{ //that repetitive comment under the image
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: #FFF;
+    box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    width: fit-content;
+    p{
+        max-width: 400px;
+        color: #4D533C;
+        font-size: 16px;
+        @include poppins400();
+        font-style: italic;
+        line-height: 26px; 
+    }
+    .person{
+        display: flex;
+        gap: 10px;
+        .ava{
+            @include ava(46px);
+        }
+        .person_info{
+            p.name{
+                @include poppins700();
+                color: #4D533C;
+                font-size: 16px; 
+            }
+            p.work{
+                color: #152934;
+                font-size: 14px; 
+                @include poppins400();
+            }
+        }
+    }
+}
+
+%link{
+    .link{
+        width: fit-content;
+        margin-left: 10px;
+        a{
+            position: relative;
+            color: rgba(212, 214, 212, 1);
+            font-size: 16px;
+            @include poppins700();
+            text-decoration-line: underline; 
+        }
+        @include triangle(rgba(212, 214, 212, 1));
+    }
+    .link:hover{
+        a{
+            color: rgba(255, 215, 35, 1);
+        }
+        @include triangle(rgba(255, 215, 35, 1));
+    }
+}
+
+//SECTION1 START
+.section1{
+    background: url(../img/Bitmap.png) no-repeat center;
+    background-size: cover;
+    padding: 28px 165px 160px 165px;
+    position: relative;
+    header{
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            display: flex;
+            align-items: center;
+            justify-content: baseline;
+            img{
+                width: 55px;
+                height: 35px; 
+            }
+            h1{
+                color: #FFF;
+                font-size: 35px;
+                @include poppins700();
+            }
+        }
+        .burger{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            justify-content: center;
+            align-items: center;
+            .line{
+                height: 2px;
+                width: 20px;
+                background-color: black;
+            }
+        }
+        margin-bottom: 130px;
+    }
+    .text_side{
+        p.a_place_where{
+            margin-bottom: 22px;
+            color: #FFF;
+            font-size: 14px;
+            @include poppins400();
+        }
+        h2{
+            max-width: 616px; 
+            margin-bottom: 24px;
+            color: #FFF;
+            font-size: 60px;
+            @include poppins700();
+            line-height: 74px; 
+        }
+        p.description{
+            margin-bottom: 45px;
+            max-width: 581px; 
+            color: #FFF;
+            font-size: 16px;
+            @include poppins400();
+            line-height: 26px; 
+        }
+        @extend %link;
+    }
+
+    .icons_div_wrapper{
+        width: 100%;
+        .icons_div{
+            background-color: rgba(255, 255, 255, 1);
+            display: flex;
+            padding: 60px 166px 54px 65px;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 165px;
+            border-radius: 2px;
+            box-shadow: 50px 50px 100px 0px rgba(0, 0, 0, 0.15);
+        }
+        position: absolute;
+        bottom: -100px;
+        right: 0;
+    }
+}
+//SECTION1 END
+
+//SECTION2 START
+.section2{
+    display: flex;
+    padding: 0px 165px;
+    gap: 40px;
+    .text_side{
+        padding-top: 230px;
+        flex: 1;
+        p{
+            margin-bottom: 29px;
+            color: rgba(77, 83, 60, 0.90);
+            font-size: 14px; 
+            @include poppins400();
+        }
+        .caption{
+            @extend %caption;
+        }
+    }
+    .quote_side{
+        padding-bottom: 120px;
+        margin-top: 100px;
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        .quote_wrapper{
+            max-width: 474px; 
+            padding: 30px 8px 10px 40px;
+            background: #FFF;
+            box-shadow: 0px 100px 100px 0px rgba(0, 0, 0, 0.15);
+            .quote{
+                padding-top: 120px;
+                max-width: 430px;
+                color: #4D533C;
+                font-size: 24px;
+                @include poppins400();
+                font-style: italic;
+                line-height: 40px; 
+                padding-bottom: 50px;
+            }
+            .person_info{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding-bottom: 50px;
+                .ava{
+                    @include ava(90px);
+                }
+                .name_and_info{
+                   .name{
+                    color: #4D533C;
+                    font-size: 22px;
+                    @include poppins700();
+                    margin-bottom: 10px;
+                   } 
+                   .info{
+                    color: #152934;
+                    font-size: 16px;
+                    @include poppins400();
+                   }
+                }
+            }
+        }
+    }
+}
+//SECTION2 END
+
+//SECTION3 START
+.section3{
+    padding: 0 165px 100px 165px;
+    .line{
+        margin-bottom: 120px;
+        height: 1px;
+        width: 100%;
+        background-color: rgba(33, 56, 66, 0.10);;
+    }
+    .caption_side{
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+        h3{
+            color: #4D533C;
+            font-size: 36px;
+            @include poppins700();
+            line-height: 46px; 
+        }
+        p{
+            color: rgba(33, 56, 66, 0.60);
+            font-size: 16px;
+            @include poppins400();
+            max-width: 500px;
+            line-height: 26px; 
+        }
+    }
+
+}
+//SECTION3 END
+
+
+//SECTION4 START
+.section4{
+    display: flex;
+    gap: 100px;
+    margin-bottom: 165px;
+    .image_side{
+        flex: 1;
+        background: url(../img/Bitmap1.png) no-repeat center;
+        background-size: cover;
+        position: relative;
+        .comment{
+            @extend %comment;
+            position: absolute;
+            bottom: -65px;
+            right: -33px;
+        }
+    }
+
+    .content_side{
+        margin-top: 80px;
+        flex: 1;
+        @extend %caption;
+    }
+
+}
+//SECTION4 END
+
+
+//SECTION5 START
+.section5{
+    display: flex;
+    gap: 100px;
+    margin-bottom: 120px;
+    padding-left: 165px;
+    .content_side{
+        margin-top: 80px;
+        @extend %caption;
+        flex: 1;
+    }
+    .image_side{
+        flex: 1;
+        background: url(../img/Bitmap2.png) no-repeat center;
+        background-size: cover;
+        position: relative;
+        .comment{
+            @extend %comment;
+            position: absolute;
+            bottom: -30px;
+            left: -33px;
+        }
+    }
+}
+//SECTION5 END
+
+
+//SECTION6 START
+.section6{
+    display: flex;
+    gap: 100px;
+    margin-bottom: 165px;
+    .image_side{
+        flex: 1;
+        background: url(../img/Bitmap3.png) no-repeat center;
+        background-size: cover;
+        position: relative;
+        .comment{
+            @extend %comment;
+            position: absolute;
+            bottom: -65px;
+            right: -33px;
+        }
+    }
+    .content_side{
+        margin-top: 90px;
+        @extend %caption;
+        flex: 1;
+    }
+}
+//SECTION6 END
+
+//SECTION7 START
+.section7{
+    padding: 0px 165px;
+    .line{
+        width: 100%;
+        height: 1px;
+        background-color: rgba(33, 56, 66, 0.10);
+    }
+
+    h3{
+        margin-top: 120px;
+        margin-bottom: 87px;
+        max-width: 600px;
+        color: #4D533C;
+        font-size: 36px;
+        @include poppins700();
+        line-height: 46px; 
+    }
+
+    .features_flex_container{
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+        margin-bottom: 100px;
+        .feature{
+            padding: 28px;
+            h4{
+                color: #4D533C;
+                font-size: 24px;
+                 @include poppins500();
+                line-height: 34px;
+                text-transform: uppercase; 
+                margin-bottom: 20px;
+            }
+            p{
+                color: rgba(33, 56, 66, 0.60);
+                font-size: 14px;
+                @include poppins500();
+                line-height: 26px;
+                margin-bottom: 30px; 
+            }
+            @extend %link;
+        }
+    }
+}
+//SECTION7 END
+
+//SECTION8 START
+.section8{
+    display: flex;
+    .section8_wrapper{
+        flex: 1;
+        padding: 70px 165px;
+        background: #FAFAFA;
+        box-shadow: 50px 50px 50px 0px rgba(0, 0, 0, 0.15);
+        h5{
+            color: #4D533C;
+            font-size: 60px;
+            @include poppins700();
+            line-height: 74px; 
+            margin-bottom: 50px;
+        }
+        @extend %link;
+    }
+    .bg{
+        width: 165px;
+        display: flex;
+        flex-direction: column;
+        .white_background{
+            flex: 1;
+        }
+        .green_background{
+            flex: 1;
+            background-color: rgba(79, 85, 61, 1);
+        }
+    }
+
+}
+//SECTION8 END
+
+
+//FOOTER START
+footer{
+    padding: 120px 165px 0 165px;
+    background-color: rgba(79, 85, 61, 1);
+    background: url(../img/footer_bg1.png) no-repeat center;
+    background-size: cover;
+
+    .phone_and_adress{
+        margin-bottom: 52px;
+        display: flex;
+        gap: 120px;
+        div{
+            p{
+                margin-bottom: 8px;
+                color: #B6C197;
+                font-size: 16px;
+                 @include poppins400();
+                line-height: 40px; 
+            }
+            h6{
+                color: #FFF;
+                font-size: 16px;
+                @include poppins700();
+                line-height: 40px; 
+            }
+        }
+    }
+    .line{
+        width: 100%;
+        background: #5D6544; 
+        height: 1px;
+    }
+
+    .footer_links_container{
+        display: flex;
+        justify-content: space-between;
+        margin: 60px 0;
+        div{
+            h6{
+            color: #FFF;
+            font-size: 16px;
+            @include poppins500();
+            line-height: 38px;
+            text-transform: uppercase; 
+            margin-bottom: 21px;
+            }
+            .links{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                a{
+                    color: #B6C197;
+                    font-size: 16px;
+                    @include poppins400();
+                    line-height: 40px; 
+                }
+            }
+        }
+        .vertical_line{
+            background: #5D6544; 
+            width: 1px;
+        }
+        .get_in_touch{
+            p{
+                color: #B6C197;
+                font-size: 16px;
+                @include poppins400();
+                line-height: 26px; 
+                margin-bottom: 23px;
+            }
+            h4{
+                color: #FFF;
+                font-size: 24px;
+                @include poppins700();
+                line-height: 38px; 
+                margin-bottom: 23px;
+            }
+            .social_medias{
+                display: flex;
+                gap: 14px;
+                .circle{
+                    width: 33px;
+                    height: 33px;
+                    border-radius: 100%;
+                    background-color: rgba(68, 74, 52, 1);
+                }
+                .circle:hover{
+                    background-color: rgba(255, 215, 35, 1);
+                    transition: background-color 0.7s;
+                }
+            }
+        }
+    }
+    
+    .footer_bottom{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0 30px 0;
+        align-items: center;
+        p{
+            color: #B5C096;
+            font-size: 14px;
+            @include poppins400();
+            line-height: normal; 
+        }
+    }
+}
+//FOOTER END
+
