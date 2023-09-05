@@ -126,6 +126,10 @@
     }
 }
 
+body{
+    margin: 0;
+}
+
 //SECTION1 START
 .section1{
     background: url(../img/Bitmap.png) no-repeat center;
@@ -139,6 +143,7 @@
             display: flex;
             align-items: center;
             justify-content: baseline;
+            text-decoration: none;
             img{
                 width: 55px;
                 height: 35px; 
@@ -527,6 +532,7 @@ footer{
                     font-size: 16px;
                     @include poppins400();
                     line-height: 40px; 
+                    text-decoration: none;
                 }
             }
         }
